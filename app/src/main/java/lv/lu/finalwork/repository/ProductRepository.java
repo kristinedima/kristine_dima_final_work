@@ -1,7 +1,7 @@
 package lv.lu.finalwork.repository;
 
 import lv.lu.finalwork.model.Product;
-import org.springframework.stereotype.Component;
+import org.hibernate.criterion.CriteriaQuery;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +25,12 @@ class ProductRepository implements Repository<Product> {
     @Override
     public List<Product> findAll() {
         return new ArrayList<>(repository.values());
+//        return sessionFactory.getCurrentSession()
+//                .createQuery("FROM PRODUCTS P", Product.class)
+//                .getResultList();
+//
+//        Session session = sessionFactory.getCurrentSession();
+//        CriteriaQuery<Product> criteriaQuery = session.getCriteriaBuilder().createQuery(product.class);
     }
 
     @Override
